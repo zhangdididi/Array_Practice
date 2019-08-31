@@ -1,14 +1,14 @@
 int* getRow(int rowIndex, int* returnSize){
-    int *ret = malloc(sizeof(int) * (rowIndex+1));
+    int *ret = malloc(sizeof(int) * (rowIndex+1));//开辟接收数字的一维数组
     int i = 0;
     int j = 0;
     for(i = 0; i <= rowIndex; i++)
     {
-        if(i <2)
+        if(i <2)//判断行数为0或1，则数组元素都为1
         {
             ret[i] = 1;
         }
-        else
+        else//行数大于1，从后往前让数组元素等于上一行同列元素+前一列元素
         {
             ret[i] = 1;
             for(j = i-1; j >= 1;j--)
@@ -17,6 +17,6 @@ int* getRow(int rowIndex, int* returnSize){
             }
         }
     }
-    *returnSize = rowIndex+1;
+    *returnSize = rowIndex+1;//数组长度的返回值
     return ret;
 }
