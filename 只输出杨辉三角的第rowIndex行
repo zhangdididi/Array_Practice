@@ -10,11 +10,11 @@ int* getRow(int rowIndex, int* returnSize){
         }
         else//行数大于1，从后往前让数组元素等于上一行同列元素+前一列元素
         {
-            ret[i] = 1;
             for(j = i-1; j >= 1;j--)
             {
                 ret[j] = ret[j] + ret[j-1];
             }
+            ret[i] = 1;
         }
     }
     *returnSize = rowIndex+1;//数组长度的返回值
