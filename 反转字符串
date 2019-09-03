@@ -3,7 +3,7 @@ void reverseString(char* s, int sSize)
     int i = 0;
     int j = sSize - 1;
     char tmp = 0;
-    while (i < j){
+    while (i < j){//逐个遍历字符串
     	tmp = s[i];
 	s[i++] = s[j];
 	s[j--] = tmp;
