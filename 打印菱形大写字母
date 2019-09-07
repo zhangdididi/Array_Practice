@@ -1,0 +1,68 @@
+#define ROW 17
+#define COL 20
+void Dayin(char str[17][20],int row, int col)//17  19
+{
+	int p = col/2 - 1;//9
+	int q = col/2 - 1;//9
+	int i = 0;
+	int j = 0;
+	int num = 22;
+	for (i = 0; i < row/2; i++)//17行
+	{
+		for (j = 0; j < col-1; j++)//19列
+		{
+			if (j < q || j > p)
+			{
+				str[i][j] = '+';
+			}
+			if(j >= q && j <= p)
+			{
+				str[i][j] = '+' + num;
+				num++;
+				if (num == 48)
+				{
+					num = 22;
+				}
+			}
+		}
+		q--;
+		p++;
+	}
+
+	for (; i < 17; i++)//17行
+	{
+		for (j = 0; j < col-1; j++)//19列
+		{
+			if (j < q || j > p)
+			{
+				str[i][j] = '+';
+			}
+			if (j > p)
+			{
+				str[i][j] = '+';
+			}
+			if (j >= q && j <= p)
+			{
+				str[i][j] = '+' + num;
+				num++;
+				if (num == 48)
+				{
+					num = 22;
+				}
+			}
+		}
+		q++;
+		p--;
+	}
+}
+
+int main()
+{
+		int i = 0;
+		char str[ROW][COL] = { 0 };//17行19列
+		Dayin(str, ROW, COL);
+		for (i = 0; i < 17; i++){
+			printf("%s\n", *(str+i));
+		}
+		return 0;
+}
