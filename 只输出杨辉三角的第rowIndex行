@@ -17,6 +17,6 @@ int* getRow(int rowIndex, int* returnSize){
             ret[i] = 1;
         }
     }
-    *returnSize = rowIndex+1;//数组长度的返回值
+    *returnSize = rowIndex+1;
     return ret;
 }
