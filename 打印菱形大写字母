@@ -17,7 +17,7 @@ void Dayin(char str[17][20],int row, int col)//17  19
 			}
 			if(j >= q && j <= p)
 			{
-				str[i][j] = '+' + num;
+				str[i][j] = '+' + num;//ascll表加相应数字得到相对的大写字母
 				num++;
 				if (num == 48)
 				{
