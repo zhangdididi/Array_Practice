@@ -1,6 +1,6 @@
 void reverseString(char* s, int sSize)
 {
-    int i = 0;//下标i指向首元素
+    int i = 0;
     int j = sSize - 1;//下标j指向最后一位元素
     char tmp = 0;
     while (i < j){//逐个遍历字符串，左右字符互换
