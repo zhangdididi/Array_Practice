@@ -1,0 +1,23 @@
+class Solution {
+    public String dayOfTheWeek(int day, int month, int year) {
+        //创建一个数组，保存星期一到星期天的String返回类型
+        String Week[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+        //一月二月看作上一年的第13个月和第14个月
+        if (month < 3) {
+            month += 12;
+            year--;
+        }
+        //保存年份前两位和年份后两位
+        int century = year / 100;
+        int yearOfCentury = year % 100;
+        //计算除以7的余数，根据数组下标进行返回
+        int num = yearOfCentury + yearOfCentury / 4 + century / 4
+        - 2 * century + (26 * (month + 1)) / 10 + day - 1;
+        //x + [x / 4] + [c / 4] - 2c + [26(m + 1) / 10] + d - 1
+        int count = num % 7;
+        if (count < 0) {
+            count += 7;
+        }
+        return Week[count];
+    }
+}
