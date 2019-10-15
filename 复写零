@@ -1,0 +1,15 @@
+//逐个遍历。时间复杂度O(N ^ 2)
+class Solution {
+    public void duplicateZeros(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] == 0) {
+                //System.arraycopy(arr, i + 1, arr, i + 2, arr.length - i - 1 - count);
+                for (int j = arr.length - 1; j > i + 1; j--) {
+                    arr[j] = arr[j - 1];
+                }
+                arr[i + 1] = 0;
+                i++;
+            }
+        }
+    }
+}
