@@ -1,5 +1,6 @@
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
+
         int len1 = m - 1;//nums1数组下标
         int len2 = n - 1;//nums2数组下标
         int i = m + n - 1;//记录nums1最后一个下标位置
@@ -11,10 +12,9 @@ class Solution {
                 nums1[i--] = nums2[len2--];
             }
         }
-        while (i >= 0) {
-            if (len1 < 0) {
-                
-            }
+        //如果len2的元素比较多，将剩余的元素输入到nums1
+        while (len2 >= 0) {
+            nums1[i--] = nums2[len2--];
         }
     }
 }
