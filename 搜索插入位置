@@ -1,0 +1,19 @@
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        //空数组，返回0
+        if (nums.length == 0) {
+            return 0;
+        }
+        //一般情况，遍历数组，遇到该数字返回下标
+        for (int i = 0 ;i < nums.length; i++) {
+            if (nums[i] == target) {
+                return i;
+            }
+        //如果大于该数字，则返回上一个数组下标
+            if (nums[i] > target) {
+                return i;
+            }
+        }
+        return nums.length;
+    }
+}
