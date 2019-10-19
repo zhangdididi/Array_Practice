@@ -9,7 +9,7 @@ class Solution {
             if (nums[i] == target) {
                 return i;
             }
-        //如果大于该数字，则返回上一个数组下标
+        //如果大于该数字，则返回当前数组下标
             if (nums[i] > target) {
                 return i;
             }
