@@ -4,6 +4,7 @@ class Solution {
             digits[i]++;
             digits[i] = digits[i] % 10;
             if (digits[i] != 0) {
+                //如果末尾数不为9，则直接返回数组
                 return digits;
             }
         }
