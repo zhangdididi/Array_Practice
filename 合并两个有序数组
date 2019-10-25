@@ -1,6 +1,5 @@
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-
         int len1 = m - 1;//nums1数组下标
         int len2 = n - 1;//nums2数组下标
         int i = m + n - 1;//记录nums1最后一个下标位置
