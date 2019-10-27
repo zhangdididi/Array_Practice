@@ -1,5 +1,6 @@
 class Solution {
     public int findLengthOfLCIS(int[] nums) {
+        //如果数组长度为0，则没有递增序列，返回0
         if (nums.length == 0) {
             return 0;
         }
