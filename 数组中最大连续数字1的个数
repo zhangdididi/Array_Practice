@@ -6,10 +6,12 @@ class Solution {
             if (nums[i] == 1) {
                 count++;
             } else {
+                //有最大的连续1，就用max记录下来
                 max = count > max ? count : max;
                 count = 0;
             }
         }
+        //避免数组中只有1的情况
         max = count > max ? count : max;
         return max;
     }
