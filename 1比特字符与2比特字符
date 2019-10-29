@@ -5,16 +5,20 @@
 链接：https://leetcode-cn.com/problems/1-bit-and-2-bit-characters
 */
 
+//线性扫描
 class Solution {
     public boolean isOneBitCharacter(int[] bits) {
+        //如果是空数组，则返回 false
         if (bits.length == 0) {
             return false;
         }
         int i = 0;
         while (i < bits.length - 1) {
             if (bits[i] == 0) {
+                //如果该元素为0，则是1比特字符，i走一步
                 i++;
             } else if (bits[i] == 1) {
+                //如果该元素为1，则是2比特字符，i走两步
                 i += 2;
             }
         }
@@ -27,7 +31,7 @@ class Solution {
 }
 
 
-
+//贪心算法
 class Solution {
     public boolean isOneBitCharacter(int[] bits) {
         int i = bits.length - 2;
