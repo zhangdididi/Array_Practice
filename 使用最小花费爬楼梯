@@ -8,8 +8,10 @@ class Solution {
         int i = 2;
         for (; i < size; i++) {
             if (dp[i - 1] + cost[i - 1] < dp[i - 2] + cost[i - 2]) {
+                //跳一步花费少则存入dp数组
                 dp[i] = dp[i - 1] + cost[i - 1];
             } else {
+                //跳两步花费少则存入dp数组
                 dp[i] = dp[i - 2] + cost[i - 2];
             }
         }
