@@ -1,7 +1,7 @@
 class Solution {
     public int minCostClimbingStairs(int[] cost) {
-
         int size = cost.length;
+        //创建新数组存储当前台阶的最少体力值花费
         int[] dp = new int[cost.length];
         dp[0] = 0;
         dp[1] = 0;
