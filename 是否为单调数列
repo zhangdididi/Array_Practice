@@ -1,8 +1,10 @@
 class Solution {
     public boolean isMonotonic(int[] A) {
+        //空数组的情况返回 true
         if (A.length == 0) {
             return true;
         }
+        //分别根据两种情况来判断为递增还是递减
         if (A[0] < A[A.length - 1]) {
             for (int i = 0; i < A.length - 1; i++) {
                 if (A[i] > A[i + 1]) {
