@@ -1,0 +1,27 @@
+给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
+
+如果你最多只允许完成一笔交易（即买入和卖出一支股票），设计一个算法来计算你所能获取的最大利润。
+
+注意你不能在买入股票前卖出股票。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock
+
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        //空数组，返回0
+        if (prices.length <= 1) {
+            return 0;
+        }
+        //min 记录第i以及之前的最小数买入
+        //max 记录第i以及之前的最大数卖出
+        int min = prices[0];
+        int max = 0;
+        for (int i = 1; i < prices.length; i++) {
+            max = max > (prices[i] - min) ? max : prices[i] - min;
+            min = min < prices[i] ? min : prices[i];
+        }
+        return max;
+    }
+} 
