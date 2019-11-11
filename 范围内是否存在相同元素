@@ -1,0 +1,17 @@
+class Solution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (set.contains(nums[i])) {
+                return true;//说明数组中在 k 的范围内找到了相同元素，返回true
+            }
+            set.add(nums[i]);
+            if (set.size() > k) {
+                //滑动范围大于 k 了，就删除最先加入的元素
+                set.remove(nums[i - k]);
+            }
+        }
+        //整个数组遍历完，在 k 的滑动范围内没有找到相同元素，返回false
+        return false;
+    }
+}
