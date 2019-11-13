@@ -1,0 +1,39 @@
+给定一个范围在  1 ≤ a[i] ≤ n ( n = 数组大小 ) 的 整型数组，数组中的元素一些出现了两次，另一些只出现一次。
+
+找到所有在 [1, n] 范围之间没有出现在数组中的数字。
+
+您能在不使用额外空间且时间复杂度为O(n)的情况下完成这个任务吗? 你可以假定返回的数组不算在额外空间内。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/find-all-numbers-disappeared-in-an-array
+
+class Solution {
+    public void swap(int[] array, int x, int y) {
+        //由于不能使用额外的空间，所以用异或方法来交换两个元素的值
+        array[x] = array[x] ^ array[y];
+        array[y] = array[x] ^ array[y];
+        array[x] = array[x] ^ array[y];
+    }
+
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        List<Integer> res = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            while (nums[i] != nums[nums[i] - 1]) {
+                //如果i下标数字对应升序位置存储的数字不一样时
+                //就交换两个下标的元素
+                //直到i下标的元素和本身对应的位置数字相同时，i++
+                swap(nums, i, nums[i] - 1);
+            }
+        }
+        //循环结束，每个元素都会处于相应顺序下标的位置
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != i + 1) {
+                //从中找出不在对应位置的下标,该空间存储的就是重复的不对应下标的数字
+                //下标+1便是数组中消失的数字,加到返回List中
+                res.add(i + 1);
+            }
+        }
+        return res;
+    }
+}
