@@ -1,0 +1,28 @@
+给定由一些正数（代表长度）组成的数组 A，返回由其中三个长度组成的、面积不为零的三角形的最大周长。
+如果不能形成任何面积不为零的三角形，返回 0。
+
+
+class Solution {
+    public int largestPerimeter(int[] A) {
+        if (A.length < 3) return 0;
+        Arrays.sort(A);
+        int max = A[A.length - 1];
+        int mid = A[A.length - 2];
+        int min = A[A.length - 3];
+        int i = A.length - 4;
+        while (true) {
+            if (max - mid < min) {
+                break;
+            }
+            if (i >= 0){
+                max = mid;
+                mid = min;
+                min = A[i];
+                --i;
+            } else {
+                return 0;
+            }
+        }
+        return max + mid + min;
+    }
+}
