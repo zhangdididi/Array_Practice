@@ -8,6 +8,7 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/sort-colors
 
+//创建哈希表
 class Solution {
     public void sortColors(int[] nums) {
         int[] table = new int[3];
@@ -24,5 +25,35 @@ class Solution {
                 table[color]--;
             }
         }
+    }
+}
+
+//空间复杂度O(1) 创建三个指针
+class Solution {
+    public void sortColors(int[] nums) {
+        if (nums.length < 2) return;
+        int color0 = 0;
+        int color2 = nums.length - 1;
+        int cur = 0;
+        while (cur <= color2) {
+            if (nums[cur] == 0) {
+                swap(nums, cur, color0);
+                cur++;
+                color0++;
+            } else if (nums[cur] == 2) {
+                swap(nums, cur, color2);
+                color2--;
+            } else {
+                cur++;
+            }
+        }
+
+    }
+
+    //用按位与的方式交换两个数值
+    public void swap(int[] array, int index1, int index2) {
+        int temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
     }
 }
