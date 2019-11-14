@@ -26,3 +26,20 @@ class Solution {
         return max + mid + min;
     }
 }
+
+
+//简化版
+class Solution {
+    public int largestPerimeter(int[] A) {
+        Arrays.sort(A);
+        for (int i = A.length - 1; i >= 2; i--) {
+            int max = A[i];
+            int mid = A[i - 1];
+            int min = A[i - 2];
+            if (max - mid < min) {
+                return max + mid + min;
+            }
+        }
+        return 0;
+    }
+}
