@@ -1,10 +1,3 @@
-public class Test {
-    public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8};
-        int toFind = 8;
-        int ret = binarySearch(arr, toFind);
-        System.out.println(ret);
-    }
 
     public static int binarySearch(int[] arr, int toFind) {
         int left = 0;
@@ -21,4 +14,4 @@ public class Test {
         }
         return -1;
     }
-}
+
