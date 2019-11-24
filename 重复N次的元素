@@ -18,7 +18,7 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/n-repeated-element-in-size-2n-array
 */
-
+//哈希表,效率低
 class Solution {
     public int repeatedNTimes(int[] A) {
         Map<Integer, Integer> map = new HashMap<>();
@@ -32,5 +32,28 @@ class Solution {
             }
         }
         return 0;
+    }
+}
+
+//三指针最快
+class Solution {
+    public int repeatedNTimes(int[] A) {
+        int slow = 0;
+        int mid = slow + 1;
+        int fast = slow + 2;   
+        while (fast < A.length) {
+            if (A[slow] == A[mid] || A[slow] == A[fast]) {
+                return A[slow];
+            } else if (A[mid] == A[fast]) {
+                return A[mid];
+            } else if (A[0] == A[A.length - 1]){
+                //用来判断数组长度为4时,三个指针指不到的情况
+                return A[0];
+            }
+            slow++;
+            mid++;
+            fast++;
+        }
+        return -1;
     }
 }
