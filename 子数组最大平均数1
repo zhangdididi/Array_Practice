@@ -1,0 +1,22 @@
+class Solution {
+    public double findMaxAverage(int[] nums, int k) {
+        int left = 0;
+        int right = k - 1;
+        double max = -10000;
+        while (right < nums.length) {
+            double sum = 0;
+            for (int i = left; i <= right; i++) {
+                sum += nums[i];
+            }
+            //循环结束,sum存储了第一个长度为k的连续子序列的和
+            //然后对sum 和 max 进行比较 大的留下
+            if (sum / k > max) {
+                max = sum / k;
+            }
+            //更新子数组的区间[left, right]
+            left++;
+            right++;
+        }
+        return max;
+    }
+}
