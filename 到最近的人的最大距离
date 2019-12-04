@@ -1,0 +1,33 @@
+class Solution {
+    public int maxDistToClosest(int[] seats) {
+        int leftCount = 0;
+        int rightCount = 0;
+        int i = 0;
+        int j = seats.length - 1;
+        while (seats[i] == 0) {
+            i++;
+            leftCount++;
+        }
+        //得到左边0的个数
+        while (seats[j] == 0) {
+            j--;
+            rightCount++;
+        }
+        //得到右边0的个数
+        int midCount = 0;
+        int maxCount = 0;
+        for (int k = i + 1; k <= j; k++) {
+            if (seats[k] == 0) {
+                midCount++;
+            } else {
+                maxCount = midCount > maxCount ? midCount : maxCount;
+                midCount = 0;
+            }
+        }
+        //中间部分最多0的个数
+        if ((maxCount + 1) / 2 < rightCount || (maxCount + 1) / 2 <= leftCount) {
+            return rightCount > leftCount ? rightCount : leftCount;
+        }
+        return (maxCount + 1) / 2;
+    }
+}
