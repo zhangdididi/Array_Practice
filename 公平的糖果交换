@@ -14,7 +14,6 @@ class Solution {
                 i++;
             }
         }
-
         return new int[]{A[i], B[j]};
     }
 }
