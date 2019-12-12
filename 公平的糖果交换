@@ -1,0 +1,20 @@
+class Solution {
+    public int[] fairCandySwap(int[] A, int[] B) {
+        int sA = 0, sB = 0;
+        for (int num : A) sA += num;
+        for (int num : B) sB += num;
+        int diff = (sA - sB) / 2;
+        Arrays.sort(A);
+        Arrays.sort(B);
+        int i = 0, j = 0;
+        while (A[i] - B[j] != diff) {
+            if (A[i] - B[j] > diff) {
+                j++;
+            } else {
+                i++;
+            }
+        }
+
+        return new int[]{A[i], B[j]};
+    }
+}
