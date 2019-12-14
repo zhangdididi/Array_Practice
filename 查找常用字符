@@ -1,0 +1,28 @@
+class Solution {
+    public List<String> commonChars(String[] A) {
+        List<String> res = new ArrayList<>();
+        if (A.length < 1) return res;
+        int[] ans = new int[26];
+        for (int i = 0; i < 26; i++) {
+            ans[i] = 101;
+        }
+        for (String str : A) {
+            int[] table = new int[26];
+            
+            for (char ch : str.toCharArray()) {
+                table[ch - 'a']++;
+            }            
+            for (int j = 0; j < 26; j++) {
+                ans[j] = ans[j] > table[j] ? table[j] : ans[j];
+            }
+        }
+        
+        for (int n = 0; n < 26; n++) {
+            while (ans[n] > 0) {
+                res.add("" + (char)(n + 'a'));
+                ans[n]--;
+            }
+        }
+        return res;
+    }
+}
