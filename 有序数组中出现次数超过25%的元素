@@ -11,6 +11,30 @@
 链接：https://leetcode-cn.com/problems/element-appearing-more-than-25-in-sorted-array
 */
 
+class Solution {
+    public int findSpecialInteger(int[] arr) {
+        if (arr.length == 1) {
+            return arr[0];
+        }
+        int index = arr.length / 4;
+        int sum = 1;
+        int curr = 0;
+        while (curr < arr.length - 1) {
+            while (curr < arr.length - 1 && arr[curr] == arr[curr + 1]) {
+                sum++;
+                curr++;
+            }
+            if (sum > index) {
+                return arr[curr];
+            } else {
+                sum = 1;
+                curr++;
+            }
+        }
+        return -1;
+    }
+}
+
 
 class Solution {
     public int findSpecialInteger(int[] arr) {
