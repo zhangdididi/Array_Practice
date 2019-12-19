@@ -1,0 +1,17 @@
+class Solution {
+    public int distanceBetweenBusStops(int[] distance, int start, int destination) {
+        if (start < 0 || destination < 0) return -1;
+        int left = Math.min(start, destination);
+        int right = Math.max(start, destination);
+        int count1 = 0;
+        int count2 = 0;
+        for (int i = 0; i < distance.length; i++) {
+            if (i >= left && i < right) {
+                count1 += distance[i];
+            } else {
+                count2 += distance[i];
+            }
+        }
+        return count1 <= count2 ? count1 : count2;
+    }
+}
