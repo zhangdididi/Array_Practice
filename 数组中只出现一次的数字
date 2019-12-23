@@ -47,7 +47,7 @@ public void FindNumsAppearOnce(int [] array,int num1[] , int num2[]) {
 }
 
 
-//
+//出现次数两次的进一次出一次
 public class Solution {
     public void FindNumsAppearOnce(int [] array,int num1[] , int num2[]) {
         List<Integer> list = new ArrayList<>();
