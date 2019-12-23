@@ -1,0 +1,25 @@
+public class Solution {
+    public void FindNumsAppearOnce(int [] array,int num1[] , int num2[]) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : array) {
+            int count = map.getOrDefault(num, 0);
+            map.put(num, count + 1);
+        }
+        int curr = 0;
+        while (curr < array.length) {
+            if (map.get(array[curr]) == 1) {
+                num1[0] = array[curr];
+                curr++;
+                break;
+            }
+            curr++;
+        }
+        while (curr < array.length) {
+            if (map.get(array[curr]) == 1) {
+                num2[0] = array[curr];
+                return;
+            }
+            curr++;
+        }
+    }
+}
