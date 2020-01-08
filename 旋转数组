@@ -10,6 +10,7 @@ class Solution {
             nums[i++] = temp[len++];
         }
         int j = 0;
+        //再将k之前的元素放在数组后面
         while (i < temp.length) {
             nums[i++] = temp[j++];
         }
