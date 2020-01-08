@@ -1,0 +1,17 @@
+class Solution {
+    public void rotate(int[] nums, int k) {
+        k %= nums.length;
+        if (nums.length <= 1 || k < 1 || k > nums.length - 1) return;
+        int[] temp = Arrays.copyOf(nums, nums.length);
+        int len = nums.length - k;
+        int i = 0;
+        //先将k之后的元素放在数组前面
+        while (i < k) {
+            nums[i++] = temp[len++];
+        }
+        int j = 0;
+        while (i < temp.length) {
+            nums[i++] = temp[j++];
+        }
+    }
+}
