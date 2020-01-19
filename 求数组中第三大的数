@@ -9,6 +9,8 @@ class Solution {
         for (int i = 0; i < nums.length; i++) {
             set.add(nums[i]);
             if (set.size() > 3) {
+                //如果有多于三个数字，就把第一个数字删除掉(默认小堆)
+                //以确保剩下的三个数字是最大的
                 set.remove(set.first());
             }
         }
