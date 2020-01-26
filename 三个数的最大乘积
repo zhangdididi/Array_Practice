@@ -8,7 +8,7 @@ class Solution {
         int n1 = 0, n2 = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] >= 0) {
-            //大于0
+                //如果大于等于0,就更新每一个数，等于后一个数
                 if (p3 < nums[i]) {
                     p1 = p2;
                     p2 = p3;
@@ -20,7 +20,7 @@ class Solution {
                     p1 = nums[i];
                 }
             } else {
-            //小于0
+                //如果小于零
                 if (n1 > nums[i]) {
                     n1 = nums[i];
                 }
