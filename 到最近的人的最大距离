@@ -10,6 +10,7 @@
 
 class Solution {
     public int maxDistToClosest(int[] seats) {
+        //分别记录左边距离和右边你距离
         int leftCount = 0;
         int rightCount = 0;
         int i = 0;
