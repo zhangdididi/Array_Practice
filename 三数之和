@@ -19,7 +19,7 @@ class Solution {
             }
             //去除重复元素
             if (i > 0 && nums[i] == nums[i - 1]) continue;
-            int mid = i +1;
+            int mid = i + 1;
             int right = len - 1;
             while (mid < right) {
                 int sum = nums[i] + nums[mid] + nums[right];
