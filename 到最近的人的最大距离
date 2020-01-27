@@ -8,7 +8,6 @@
 链接：https://leetcode-cn.com/problems/maximize-distance-to-closest-person
 */
 
-
 class Solution {
     public int maxDistToClosest(int[] seats) {
         int leftCount = 0;
