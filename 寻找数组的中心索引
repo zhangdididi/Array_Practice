@@ -18,6 +18,8 @@ class Solution {
         int leftsum = 0;
         for (int i = 0; i < nums.length; i++) {
             if (leftsum == sum - nums[i] - leftsum) {
+                //如果总和减去左边数字和当前数字等于左边数字
+                //就返回当前元素的下标
                 return i;
             }
             leftsum += nums[i];
