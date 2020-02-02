@@ -6,9 +6,12 @@
 
 class Solution {
     public int findUnsortedSubarray(int[] nums) {
+        //拷贝一份原数组
         int[] temp = Arrays.copyOf(nums, nums.length);
+        //将原数组进行排序
         Arrays.sort(nums);
         int left = 0, right = nums.length - 1;
+        //从左边开始比较排序和没排序的数组
         for (int i = 0; i <= right; i++) {
             if (nums[i] == temp[i]) {
                 left++;
@@ -16,6 +19,7 @@ class Solution {
                 break;
             }
         }
+        //从右边开始比较
         for (int i = nums.length - 1; i >= left; i--) {
             if (nums[i] == temp[i]) {
                 right--;
@@ -23,6 +27,7 @@ class Solution {
                 break;
             }
         }
+        //排序数组和原数组左右第一个不同元素的中间部分就是无序的子数组
         return right - left + 1;
     }
 }
