@@ -21,6 +21,7 @@ class Solution {
                 }
             } else {
                 //如果小于零
+                //就保存最小的两个负数
                 if (n1 > nums[i]) {
                     n1 = nums[i];
                 }
