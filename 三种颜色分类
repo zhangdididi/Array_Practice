@@ -12,6 +12,7 @@
 class Solution {
     public void sortColors(int[] nums) {
         int[] table = new int[3];
+        //保存每种颜色的数量
         for (int elem : nums) {
             table[elem]++;
         }
