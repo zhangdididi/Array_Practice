@@ -5,6 +5,7 @@
 class Solution {
     public int largestPerimeter(int[] A) {
         if (A.length < 3) return 0;
+        //对数组元素进行排序
         Arrays.sort(A);
         int max = A[A.length - 1];
         int mid = A[A.length - 2];
@@ -12,9 +13,11 @@ class Solution {
         int i = A.length - 4;
         while (true) {
             if (max - mid < min) {
+                //不符合三角形原则直接跳出循环
                 break;
             }
             if (i >= 0){
+                //更新三条边
                 max = mid;
                 mid = min;
                 min = A[i];
