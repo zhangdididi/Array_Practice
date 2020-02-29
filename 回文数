@@ -3,7 +3,6 @@
 */
 
 //反转一半数字
-
 public boolean isPalindrome(int x) {
     if (x < 0 || (x % 10 == 0 && x != 0)) return false;
     int reverseNum = 0;
@@ -18,21 +17,20 @@ public boolean isPalindrome(int x) {
 
 
 //数组列表
-class Solution {
-    public boolean isPalindrome(int x) {
-        if (x < 0) return false;
-        List<Integer> list = new ArrayList<>();
-        int num = x;
-        while (num > 0) {
-            //依次保留数字的每一位
-            list.add(num % 10);
-            num /= 10;
-        }
-        for (int i = 0; i < list.size() / 2; i++) {
-            if (list.get(i) != list.get(list.size() - i - 1)) {
-                return false;
-            }
-        }
-        return true;
+public boolean isPalindrome(int x) {
+    if (x < 0) return false;
+    List<Integer> list = new ArrayList<>();
+    int num = x;
+    while (num > 0) {
+        //依次保留数字的每一位
+        list.add(num % 10);
+        num /= 10;
     }
+    for (int i = 0; i < list.size() / 2; i++) {
+        if (list.get(i) != list.get(list.size() - i - 1)) {
+            return false;
+        }
+    }
+    return true;
 }
+
